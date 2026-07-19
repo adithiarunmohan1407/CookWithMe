@@ -1,0 +1,20 @@
+# -----------------------------------------------------------------------
+# CookWithMe - Python Dependencies
+# Install with: pip install -r requirements.txt
+# -----------------------------------------------------------------------
+
+# --- Web framework ---
+Flask==3.0.3
+Flask-Cors==4.0.1
+
+# --- Environment variables ---
+python-dotenv==1.0.1
+
+# --- AI provider SDK ---
+openai==1.35.10
+
+# --- Database ORM helper (lightweight, works great with SQLite) ---
+# (SQLite itself ships with Python's standard library, no install needed)
+
+# --- Utilities ---
+requests==2.32.3

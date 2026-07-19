@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CookWithMe — Your AI Chef</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <span class="brand-icon">🍳</span>
+        <span class="brand-name">CookWithMe</span>
+      </div>
+      <button class="icon-btn sidebar-close" id="sidebarClose" title="Close sidebar">✕</button>
+    </div>
+
+    <button class="new-chat-btn" id="newChatBtn">
+      <span>+</span> New Chat
+    </button>
+
+    <div class="sidebar-section-label">Previous Chats</div>
+    <div class="chat-history-list" id="chatHistoryList">
+      <!-- Populated by script.js -->
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+        <span id="themeIcon">🌙</span>
+        <span id="themeLabel">Dark Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ============ MAIN CHAT AREA ============ -->
+  <main class="main">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <button class="icon-btn sidebar-open" id="sidebarOpen" title="Open sidebar">☰</button>
+      <div class="topbar-title">
+        <span class="chef-hat">👨‍🍳</span>
+        <div>
+          <h1>Chef Auto</h1>
+          <p class="topbar-subtitle">Your AI cooking companion</p>
+        </div>
+      </div>
+      <button class="icon-btn clear-chat-btn" id="clearChatBtn" title="Clear this chat">🗑️</button>
+    </header>
+
+    <!-- Landing / empty state -->
+    <section class="landing" id="landing">
+      <div class="landing-icon">🍽️</div>
+      <h2>What are we cooking today?</h2>
+      <p>Ask for a recipe, get suggestions from what's in your fridge, or ask me any cooking question.</p>
+      <div class="suggestion-chips">
+        <button class="chip" data-prompt="I want Chicken Biryani">🍛 I want Chicken Biryani</button>
+        <button class="chip" data-prompt="I have eggs, onions, tomatoes and rice">🥚 What can I make with eggs, onions, tomatoes and rice?</button>
+        <button class="chip" data-prompt="Why is my cake hard?">🎂 Why is my cake hard?</button>
+        <button class="chip" data-prompt="I don't have butter, what can I use instead?">🧈 I don't have butter, substitute?</button>
+        <button class="chip" data-prompt="Suggest a vegan Kerala dinner">🌿 Suggest a vegan Kerala dinner</button>
+      </div>
+    </section>
+
+    <!-- Chat messages -->
+    <section class="chat-window" id="chatWindow"></section>
+
+    <!-- Typing indicator -->
+    <div class="typing-indicator" id="typingIndicator" style="display:none;">
+      <div class="msg-avatar bot-avatar">👨‍🍳</div>
+      <div class="typing-bubble">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- Input bar -->
+    <footer class="input-bar">
+      <div class="input-wrap">
+        <button class="icon-btn mic-btn" id="micBtn" title="Voice input">🎤</button>
+        <textarea
+          id="messageInput"
+          class="message-input"
+          placeholder="Ask Chef Auto anything about cooking..."
+          rows="1"></textarea>
+        <button class="send-btn" id="sendBtn" title="Send message">
+          <span id="sendIcon">➤</span>
+        </button>
+      </div>
+      <p class="input-hint">CookWithMe can make mistakes. Double-check food-safety advice.</p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- Hidden template for message action buttons (copy/print/pdf/share) -->
+<template id="messageActionsTemplate">
+  <div class="msg-actions">
+    <button class="msg-action-btn copy-btn" title="Copy">📋</button>
+    <button class="msg-action-btn print-btn" title="Print">🖨️</button>
+    <button class="msg-action-btn pdf-btn" title="Download PDF">📄</button>
+    <button class="msg-action-btn share-btn" title="Share">🔗</button>
+  </div>
+</template>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
